@@ -1,0 +1,11 @@
+<div class="hit results">
+    <span ng-repeat="hit in hits">
+      <div ng-bind-html="hit._highlightResult.name.value">
+         
+      </div>
+      <h2>{{hit.name}}</h2>
+    </span>
+    <span ng-if="hits.length === 0">
+      No results found 😓
+    </span>
+  </div>

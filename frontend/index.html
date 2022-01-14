@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+         <link href="app\app.css" rel="stylesheet" type="text/css" />
+        <script src="app\lib\angular.min.js"></script>
+        <script src="app\lib\angular-sanitize.min.js"></script>
+        <script src="app\lib\algoliasearch.min.js"></script>
+        <script src="app\lib\algoliasearch-helper.min.js"></script>
+        <script src="app\app.js"></script>
+    </head>
+<body>
+  <header>
+  <h1><a href="https://community.algolia.com/algoliasearch-helper-js/">Algolia Search Helper with <span>Angular 1.0</span></a></h1>
+</header>
+  <div class="app" ng-app="AlgoliaSearchHelper">
+    <!-- search-box  -->
+    <search-box></search-box>
+    <!-- Facets -->
+    <search-facets></search-facets>
+    <!-- Results -->
+    <search-result></search-result>
+    <!-- pagination -->
+    <search-pagination></search-pagination>
+  </div>
+</body>
+</html>

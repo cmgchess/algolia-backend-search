@@ -1,0 +1,16 @@
+<ul class="facet-list">
+    <strong>{{title}}</strong>
+    <span ng-repeat="facet in facets">
+      <li 
+         ng-click="toggleFacet(facet.name)"
+         ng-class="{active: facet.isRefined}">
+        <input 
+          type="checkbox" 
+          data-val="facet.name"/> 
+          <label> 
+        <span ng-bind-html="facet.name"></span> 
+        <span class="badge" ng-bind-html="facet.count"></span>
+        </label>
+      </li>
+    </span>
+  </ul>
