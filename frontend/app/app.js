@@ -5,18 +5,17 @@ var apiKey = '249078a3d4337a8231f1665ec5a44966';
 var index = 'bestbuy';
 var client = algoliasearch(applicationId, apiKey);
 
-const customSearchClient = {
-  search(requests) {
-    return fetch('http://localhost:8000/search', {
+const customSearchClient = { //callback version using helper version 2.58.1
+  search(requests,cb) {
+    return fetch('https://algolia-backend-search.herokuapp.com/search', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ requests }),
-    }).then(res => res.json());
+    }).then(res => res.json()).then(cb);
   }
 };
-
 
 // Define the `AgoliaSearchHelper` module
 var alSH = angular.module('AlgoliaSearchHelper', ['ngSanitize']);
@@ -42,9 +41,10 @@ alSH.directive('searchBox',[function(){
       ng-model="query"
     />`,
         controller: function SearchBoxController($scope, helper) {
-    $scope.query = '';
+          $scope.query = '';
     $scope.search = function() {
       helper.setQuery($scope.query).search();
+      console.log(helper.setQuery($scope.query).search())
     };
     
     helper.setQuery('').search();
